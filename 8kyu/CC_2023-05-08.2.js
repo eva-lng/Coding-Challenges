@@ -13,4 +13,6 @@ Examples:
 
 const stringToNumber = function(str){
     return Number(str);
+    // return +str;
+    // return parseInteger(str);
 }
