@@ -10,7 +10,8 @@ For empty string return:
 ["", 0]
 */
 
-function longestRepetition(s) {
+// Solution 1
+function longestRepetition1(s) {
   let lastChar = '';
   let lastCount = 0;
   let result = [lastChar, lastCount];
@@ -24,6 +25,22 @@ function longestRepetition(s) {
     }
     if (result[1] < lastCount) {
       result = [lastChar, lastCount];
+    }
+  }
+  return result;
+}
+
+// Solution 2
+function longestRepetition2(s) {
+  let result = ["", 0];
+  for (let i = 0; i < s.length; i++) {
+    for (let j = i + 1; j <= s.length; j++) {
+      let subStr = s.slice(i, j);
+      if (subStr.split('').every(el => el === subStr[0])) {
+        if (subStr.length > result[1]) {
+          result = [subStr[0], subStr.length];
+        }
+      }
     }
   }
   return result;
