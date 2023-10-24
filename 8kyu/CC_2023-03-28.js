@@ -1,7 +1,8 @@
 /* Opposite Number
 
-Given an integer or a floating-point number, find its opposite. */
+Given an integer or a floating-point number, find its opposite.
+*/
 
 function opposite(number) {
-    return number * -1;
+  return number * -1;
 }
