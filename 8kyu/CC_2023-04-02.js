@@ -8,17 +8,18 @@ if x > y: 3 points (win)
 if x < y: 0 points (loss)
 if x = y: 1 point (tie)
 
-We need to write a function that takes this collection and returns the number of points our team (x) got in the championship by the rules given above. */
+We need to write a function that takes this collection and returns the number of points our team (x) got in the championship by the rules given above.
+*/
 
 function points(games) {
-    let result = 0;
-    for (let i = 0; i < games.length; i++) {
-      let scores = games[i].split(':').map(Number);
-      if (scores[0] > scores[1]) {
-        result += 3;
-      } else if (scores[0] == scores[1]) {
-        result += 1;
-      }
+  let result = 0;
+  for (let i = 0; i < games.length; i++) {
+    let scores = games[i].split(':').map(Number);
+    if (scores[0] > scores[1]) {
+      result += 3;
+    } else if (scores[0] == scores[1]) {
+      result += 1;
     }
-    return result;
+  }
+  return result;
 }
