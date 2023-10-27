@@ -4,8 +4,9 @@ Given a random non-negative number, you have to return the digits of this number
 
 Example (Input => Output):
 35231 => [1,3,2,5,3]
-0 => [0] */
+0 => [0]
+*/
 
 function digitize(n) {
-    return n.toString().split('').reverse().map(Number);
+  return n.toString().split('').reverse().map(Number);
 }

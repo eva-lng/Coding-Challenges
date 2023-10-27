@@ -7,9 +7,10 @@ You receive an array with your peers' test scores. Now calculate the average and
 Return True if you're better, else False!
 
 Note:
-Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array. */
+Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array.
+*/
 
 function betterThanAverage(classPoints, yourPoints) {
-    let classAvg = (classPoints.reduce((sum, n) => sum + n, yourPoints)) / (classPoints.length + 1);
-    return yourPoints > classAvg ? true : false;
+  let classAvg = (classPoints.reduce((sum, n) => sum + n, yourPoints)) / (classPoints.length + 1);
+  return yourPoints > classAvg ? true : false;
 }
