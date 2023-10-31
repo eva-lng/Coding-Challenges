@@ -11,14 +11,15 @@ For example:
   false, false, true,  true]
 The correct answer would be 17.
 
-Hint: Don't forget to check for bad values like null/undefined */
+Hint: Don't forget to check for bad values like null/undefined
+*/
 
 function countSheeps(arrayOfSheep) {
-    let counter = 0;
-    arrayOfSheep.forEach(sheep => {
-      if (sheep === true) {
-        counter += 1;
-      }
-    })
-    return counter;
+  let counter = 0;
+  arrayOfSheep.forEach(sheep => {
+    if (sheep === true) {
+      counter += 1;
+    }
+  })
+  return counter;
 }
