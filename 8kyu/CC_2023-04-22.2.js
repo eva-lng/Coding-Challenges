@@ -7,16 +7,17 @@ Examples:
 (3, 5)     => 1
 (-10, 100) => 2
 (-1, -9)   => 3
-(19, -56)  => 4 */
+(19, -56)  => 4
+*/
 
 function quadrant(x, y) {
-    if (x > 0 && y > 0) {
-      return 1;
-    } else if (x < 0 && y > 0) {
-      return 2;
-    } else if (x < 0 && y < 0) {
-      return 3;
-    } else {
-      return 4;
-    }
+  if (x > 0 && y > 0) {
+    return 1;
+  } else if (x < 0 && y > 0) {
+    return 2;
+  } else if (x < 0 && y < 0) {
+    return 3;
+  } else {
+    return 4;
+  }
 }

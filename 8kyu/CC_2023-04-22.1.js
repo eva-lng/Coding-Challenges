@@ -12,16 +12,17 @@ ahoj - czech republic
 czesc - polish
 Notes
 
-You can assume the input is a string. To keep this a beginner exercise you don't need to check if the greeting is a subset of word (Hallowen can pass the test). Function should be case insensitive to pass the tests. */
+You can assume the input is a string. To keep this a beginner exercise you don't need to check if the greeting is a subset of word (Hallowen can pass the test). Function should be case insensitive to pass the tests.
+*/
 
 function validateHello(greetings) { 
-    const hellos = ["hello", "ciao", "salut", "hallo", "hola", "ahoj", "czesc"];
-    greetings = greetings.toLowerCase();
-    
-    for (let item of hellos) {
-      if (greetings.includes(item)) {
-        return true;
-      }
+  const hellos = ["hello", "ciao", "salut", "hallo", "hola", "ahoj", "czesc"];
+  greetings = greetings.toLowerCase();
+  
+  for (let item of hellos) {
+    if (greetings.includes(item)) {
+      return true;
     }
-    return false;
+  }
+  return false;
 }
