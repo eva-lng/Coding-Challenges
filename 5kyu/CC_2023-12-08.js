@@ -31,5 +31,9 @@ NOTE: There will also be lists tested of lengths upwards of 10,000,000 elements.
 */
 
 function sum_pairs(ints, s) {
-
+  const seen = new Set();
+  for (let i of ints) {
+    if (seen.has(s - i)) return [s - i, i];
+    seen.add(i);
+  }
 }
