@@ -16,3 +16,17 @@ The next top is always 1 character higher than the previous one. For the above e
 - When the msg string is empty, return an empty string.
 - The input strings may be very long. Make sure your solution has good performance.
 */
+
+function tops(msg) {
+  const result = [];
+  let skip = 1;
+  
+  for (let i = skip; i < msg.length;) {
+    if (skip % 2 !== 0) {
+      result.push(msg[i]);
+    }
+    skip += 1;
+    i += skip;
+  }
+  return result.reverse().join('');
+}
