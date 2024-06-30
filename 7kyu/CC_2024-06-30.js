@@ -2,7 +2,8 @@
 
 In this kata the aim is to compare each pair of integers from two arrays, and return a new array of large numbers.
 
-Note: Both arrays have the same dimensions.
+Note:
+Both arrays have the same dimensions.
 
 Example:
 let arr1 = [13, 64, 15, 17, 88];
