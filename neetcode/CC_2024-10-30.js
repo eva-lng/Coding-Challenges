@@ -21,7 +21,21 @@ class Solution {
    * @param {string} t
    * @return {boolean}
    */
+
+  // hash table optimal
   isAnagram1(s, t) {
+    if (s.length === t.length) return false;
+
+    const charCount = new Array(26).fill(0);
+    for (let i = 0; i < s.length; i++) {
+      charCount[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
+      charCount[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
+    }
+    return charCount.every(n => n === 0);
+  }
+
+  // hash table
+  isAnagram2(s, t) {
     if (s.length !== t.length) return false;
 
     const charCount = {};
@@ -40,7 +54,8 @@ class Solution {
     return true;
   }
 
-  isAnagram2(s, t) {
+  // sorting
+  isAnagram3(s, t) {
       return s.split('').sort().join('') === t.split('').sort().join('');
   }
 }
