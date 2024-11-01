@@ -30,6 +30,24 @@ class Solution {
    * @return {number[]}
    */
 
+  // hash map (two pass)
+  twoSum2(nums, target) {
+    const indices = {};
+
+    for (let i = 0; i < nums.length; i++) {
+      indices[nums[i]] = i;
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+      const diff = target - nums[i];
+      if (indices[diff] !== undefined && indices[diff] !== i) {
+        return [i, indices[diff]];
+      }
+    }
+
+    return [];
+  }
+
   // brute force
   twoSum3(nums, target) {
     for (let i = 0; i < nums.length; i++) {
