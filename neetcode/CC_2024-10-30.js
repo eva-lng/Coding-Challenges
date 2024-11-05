@@ -24,7 +24,7 @@ class Solution {
 
   // hash table optimal
   isAnagram1(s, t) {
-    if (s.length === t.length) return false;
+    if (s.length !== t.length) return false;
 
     const charCount = new Array(26).fill(0);
     for (let i = 0; i < s.length; i++) {
