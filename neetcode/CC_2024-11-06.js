@@ -26,8 +26,33 @@ class Solution {
    * @return {number}
    */
 
+  // sorting
+  longestConsecutive1(nums) {
+    if (nums.length === 0) return 0;
+    nums.sort((a, b) => a - b);
+
+    let longest = 0;
+    let curr = nums[0];
+    let streak = 0;
+    let i = 0;
+
+    while (i < nums.length) {
+      if (curr !== nums[i]) {
+        curr = nums[i];
+        streak = 0;
+      }
+      while (i < nums.length && curr === nums[i]) {
+        i++;
+      }
+      streak++;
+      curr++;
+      longest = Math.max(longest, streak);
+    }
+    return longest;
+  }
+
   // brute force
-  longestConsecutive(nums) {
+  longestConsecutive2(nums) {
     let longest = 0;
     const numSet = new Set(nums);
 
