@@ -26,8 +26,25 @@ class Solution {
    * @return {number}
    */
 
-  // sorting
+// hash set
   longestConsecutive1(nums) {
+    const numSet = new Set(nums);
+    let longest = 0;
+
+    for (let n of numSet) {
+      if (!numSet.has(n - 1)) {
+        let length = 1;
+        while (numSet.has(n + length)) {
+          length++;
+        }
+        longest = Math.max(longest, length);
+      }
+    }
+    return longest;
+  }
+
+  // sorting
+  longestConsecutive2(nums) {
     if (nums.length === 0) return 0;
     nums.sort((a, b) => a - b);
 
@@ -52,7 +69,7 @@ class Solution {
   }
 
   // brute force
-  longestConsecutive2(nums) {
+  longestConsecutive3(nums) {
     let longest = 0;
     const numSet = new Set(nums);
 
