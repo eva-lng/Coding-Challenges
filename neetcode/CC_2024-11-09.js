@@ -28,8 +28,21 @@ class Solution {
    * @return {number[]}
    */
 
+  // hash map
+  twoSum1(numbers, target) {
+    const mp = new Map();
+    for (let i = 0; i < numbers.length; i++) {
+      const tmp = target - numbers[i];
+      if (mp.has(tmp)) {
+        return [mp.get(tmp), i + 1];
+      }
+      mp.set(numbers[i], i + 1);
+    }
+    return [];
+  }
+
   // binary search
-  twoSum(numbers, target) {
+  twoSum2(numbers, target) {
     for ( let i = 0; i < numbers.length; i++) {
       let l = i + 1;
       let r = numbers.length - 1;
@@ -49,7 +62,7 @@ class Solution {
   }
 
   // brute force
-  twoSum2(numbers, target) {
+  twoSum3(numbers, target) {
     for (let i = 0; i < numbers.length; i++) {
       for (let j = 0; j < numbers.length; j++) {
         if (numbers[i] + numbers[j] === target) {
