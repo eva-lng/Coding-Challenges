@@ -28,8 +28,27 @@ class Solution {
    * @return {number[]}
    */
 
-  // hash map
+  // two pointer
   twoSum1(numbers, target) {
+    let l = 0;
+    let r = numbers.length - 1;
+
+    while (l < r) {
+      const curSum = numbers[l] + numbers[r];
+      
+      if (curSum > target) {
+        r--;
+      } else if (curSum < target) {
+        l++;
+      } else {
+        return [l + 1, r + 1];
+      }
+    }
+    return [];
+  }
+
+  // hash map
+  twoSum2(numbers, target) {
     const mp = new Map();
     for (let i = 0; i < numbers.length; i++) {
       const tmp = target - numbers[i];
@@ -42,7 +61,7 @@ class Solution {
   }
 
   // binary search
-  twoSum2(numbers, target) {
+  twoSum3(numbers, target) {
     for ( let i = 0; i < numbers.length; i++) {
       let l = i + 1;
       let r = numbers.length - 1;
@@ -62,7 +81,7 @@ class Solution {
   }
 
   // brute force
-  twoSum3(numbers, target) {
+  twoSum4(numbers, target) {
     for (let i = 0; i < numbers.length; i++) {
       for (let j = 0; j < numbers.length; j++) {
         if (numbers[i] + numbers[j] === target) {
