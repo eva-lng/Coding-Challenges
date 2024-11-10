@@ -1,54 +1,52 @@
-/* Three Integer Sum
+/* Valid Palindrome II
 
-Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] where nums[i] + nums[j] + nums[k] == 0, and the indices i, j and k are all distinct.
-The output should not contain any duplicate triplets. You may return the output and the triplets in any order.
+Given a string s, return true if the s can be palindrome after deleting at most one character from it.
 
 Example 1:
-Input: nums = [-1,0,1,2,-1,-4]
-Output: [[-1,-1,2],[-1,0,1]]
-
-Explanation:
-nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
-nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
-nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
-The distinct triplets are [-1,0,1] and [-1,-1,2].
+Input: s = "aba"
+Output: true
 
 Example 2:
-Input: nums = [0,1,1]
-Output: []
-
-Explanation: The only possible triplet does not sum up to 0.
+Input: s = "abca"
+Output: true
+Explanation: You could delete the character 'c'.
 
 Example 3:
-Input: nums = [0,0,0]
-Output: [[0,0,0]]
-
-Explanation: The only possible triplet sums up to 0.
-
+Input: s = "abc"
+Output: false
+ 
 Constraints:
-3 <= nums.length <= 1000
--10^5 <= nums[i] <= 10^5
+1 <= s.length <= 105
+s consists of lowercase English letters.
 */
 
 class Solution {
   /**
-   * @param {number[]} nums
-   * @return {number[][]}
+   * @param {string} str
+   * @return {boolean}
    */
 
-  // brute force
-  threeSum(nums) {
-    const res = new Set();
-    nums.sort((a, b) => a - b);
-    for (let i = 0; i < nums.length; i++) {
-      for (let j = i + 1; j < nums.length; j++) {
-        for (let k = j + 1; k < nums.length; k++) {
-          if (nums[i] + nums[j] + nums[k] === 0) {
-            res.add(JSON.stringify([nums[i], nums[j], nums[k]]));
-          }
-        }
+  // two pointer
+  validPalindrome(str) {
+    let low = 0;
+    let high = str.length - 1;
+
+    while (low < high) {
+      if (str[low] !== str[high]) {
+        return this.isPalindrome(str, low + 1, high) || this.isPalindrome(str, low, high - 1);
       }
+      low++;
+      high--;
     }
-    return Array.from(res).map((item => JSON.parse(item)));
+    return true;
+  }
+
+  isPalindrome(s, l, h) {
+    while (l < h) {
+      if (s[l] !== s[h]) return false;
+      l++;
+      h--;
+    }
+    return true;
   }
 }
