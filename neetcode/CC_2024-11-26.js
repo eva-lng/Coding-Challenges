@@ -23,6 +23,7 @@ class Solution {
    * @return {number}
    */
 
+  // Boyer–Moore majority vote algo
   majorityElement1(nums) {
     if (nums.length === 1) return nums[0];
 
@@ -48,6 +49,24 @@ class Solution {
     for (const num of nums) {
       map[num] = (map[num] || 0) + 1;
       if (map[num] >= majorityCount) return num;
+    }
+  }
+
+  majorityElement3(nums) {
+    if (nums.length === 1) return nums[0];
+
+    const map = new Map();
+    const majorityCount = Math.ceil(nums.length / 2);
+
+    for (const num of nums) {
+      const currentNum = map.get(num);
+
+      if (currentNum) {
+        map.set(num, currentNum + 1);
+        if (currentNum + 1 >= majorityCount) return num;
+      } else {
+        map.set(num, 1);
+      }
     }
   }
 }
