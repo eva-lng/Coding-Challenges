@@ -22,7 +22,10 @@ class Solution {
    * @param {number[]} nums
    * @return {number}
    */
+
   majorityElement1(nums) {
+    if (nums.length === 1) return nums[0];
+
     let candidate;
     let count = 0;
 
@@ -34,5 +37,17 @@ class Solution {
     }
 
     return candidate;
+  }
+
+  majorityElement2(nums) {
+    if (nums.length === 1) return nums[0];
+
+    const map = {};
+    const majorityCount = Math.ceil(nums.length / 2);
+
+    for (const num of nums) {
+      map[num] = (map[num] || 0) + 1;
+      if (map[num] >= majorityCount) return num;
+    }
   }
 }
