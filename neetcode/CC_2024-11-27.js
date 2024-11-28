@@ -35,7 +35,7 @@ class Solution {
     let counter = 0;
 
     for (const num of nums) {
-      if (num !== value) {
+      if (num !== val) {
         nums[counter] = num;
         counter++;
       }
