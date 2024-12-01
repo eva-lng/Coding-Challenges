@@ -37,9 +37,27 @@ class Solution {
    * @param {number[]} nums2
    * @return {number[]}
    */
+  // stack
+  nextGreaterElement1(nums1, nums2) {
+    const map = new Map();
+    const stack = [];
+
+    for (const num of nums2) {
+      while (stack.length && stack[stack.length - 1] < num) {
+        map.set(stack.pop(), num);
+      }
+      stack.push(num);
+    }
+
+    for (let i = 0; i < nums1.length; nums1++) {
+      nums1[i] = map.has(nums1[i]) ? map.get(nums1[i]) : -1;
+    }
+
+    return nums1;
+  }
 
   // brute force
-  nextGreaterElement(nums1, nums2) {
+  nextGreaterElement2(nums1, nums2) {
     const res = [];
     for (let i = 0; i < nums1.length; i++) {
       let max = -1;
