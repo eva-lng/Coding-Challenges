@@ -25,7 +25,7 @@ class Solution {
    * @param {string} s
    * @return {number}
    */
-  firstUniqChar(s) {
+  firstUniqChar1(s) {
     const charCount = {};
 
     for (const ch of s) {
@@ -35,6 +35,25 @@ class Solution {
     for (let i = 0; i < s.length; i++) {
       const ch = s[i];
       if (charCount[ch] === 1) return i;
+    }
+
+    return -1;
+  }
+
+  firstUniqChar2(s) {
+    if (!s) return -1;
+
+    const freq = new Array(26).fill(0);
+
+    for (const ch of s) {
+      freq[ch.charCodeAt() - "a".charCodeAt()]++;
+    }
+
+    for (let i = 0; i < s.length; i++) {
+      const ch = s[i];
+      if (freq[ch.charCodeAt() - "a".charCodeAt()] === 1) {
+        return i;
+      }
     }
 
     return -1;
