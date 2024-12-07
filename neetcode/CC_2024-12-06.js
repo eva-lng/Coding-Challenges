@@ -21,7 +21,8 @@ class Solution {
    * @param {number[]} nums
    * @return {number[]}
    */
-  findDisappearedNumbers(nums) {
+
+  findDisappearedNumbers1(nums) {
     const res = [];
 
     nums.forEach((n) => {
@@ -34,6 +35,23 @@ class Solution {
     for (let i = 0; i < nums.length; i++) {
       if (nums[i] > 0) {
         res.push(i + 1);
+      }
+    }
+
+    return res;
+  }
+
+  findDisappearedNumbers2(nums) {
+    const res = [];
+    const map = {};
+
+    for (const n of nums) {
+      map[n] = true;
+    }
+
+    for (let i = 1; i <= nums.length; i++) {
+      if (!map[i]) {
+        res.push(i);
       }
     }
 
