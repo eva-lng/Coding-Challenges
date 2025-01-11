@@ -23,7 +23,8 @@ class Solution {
    * @param {number[]} nums
    * @return {number[]}
    */
-  sortArrayByParity(nums) {
+
+  sortArrayByParity1(nums) {
     let l = 0;
     let r = nums.length - 1;
 
@@ -35,6 +36,18 @@ class Solution {
         r--;
       }
       [nums[l], nums[r]] = [nums[r], nums[l]];
+    }
+    return nums;
+  }
+
+  sortArrayByParity2(nums) {
+    let l = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] % 2 === 0) {
+        [nums[l], nums[i]] = [nums[i], nums[l]];
+        l++;
+      }
     }
     return nums;
   }
