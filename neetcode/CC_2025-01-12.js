@@ -23,7 +23,7 @@ class Solution {
    * @return {number[]}
    */
 
-  intersection(nums1, nums2) {
+  intersection1(nums1, nums2) {
     const res = [];
     const map = {};
 
@@ -37,6 +37,17 @@ class Solution {
         res.push(n);
         map[n] = false;
       }
+    }
+    return res;
+  }
+
+  intersection2(nums1, nums2) {
+    const s1 = new Set(nums1);
+    const s2 = new Set(nums2);
+    const res = [];
+
+    for (let n of s1) {
+      if (s2.has(n)) res.push(n);
     }
     return res;
   }
