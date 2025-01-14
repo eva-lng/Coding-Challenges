@@ -21,7 +21,7 @@ class Solution {
    * @return {number[]}
    */
 
-  generate(numRows) {
+  generate1(numRows) {
     const res = [[1]];
 
     for (let i = 0; i < numRows - 1; i++) {
@@ -32,6 +32,23 @@ class Solution {
         row.push(dummyRow[j] + dummyRow[j + 1]);
       }
       res.push(row);
+    }
+    return res;
+  }
+
+  generate2(numRows) {
+    const res = [];
+
+    for (let i = 0; i < numRows; i++) {
+      res.push(Array(i + 1));
+
+      for (let j = 0; j <= i; j++) {
+        if (j === 0 || j === i) {
+          res[i][j] = 1;
+        } else {
+          res[i][j] = res[i - 1][j - 1] + res[i - 1][j];
+        }
+      }
     }
     return res;
   }
