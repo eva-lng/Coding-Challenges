@@ -29,7 +29,7 @@ class Solution {
    * @return {number}
    */
 
-  maxProductDifference(nums) {
+  maxProductDifference1(nums) {
     let firstMin = (secondMin = Infinity);
     let firstMax = (secondMax = 0);
 
@@ -48,5 +48,10 @@ class Solution {
     }
 
     return firstMax * secondMax - firstMin * secondMin;
+  }
+
+  maxProductDifference2(nums) {
+    const arr = nums.sort((a, b) => a - b);
+    return arr[arr.length - 1] * arr[arr.length - 2] - arr[0] * arr[1];
   }
 }
