@@ -11,7 +11,7 @@ Examples:
 "Buckethead" is an anagram of "DeathCubeK"
 */
 
-function isAnagram(str1, str2) {
+function isAnagram1(str1, str2) {
   if (str1.length !== str2.length) return false;
 
   const charMap = {};
@@ -26,4 +26,11 @@ function isAnagram(str1, str2) {
   }
 
   return true;
+}
+
+function isAnagram2(str1, str2) {
+  return (
+    str1.toLowerCase().split("").sort().join("") ===
+    str2.toLowerCase().split("").sort().join("")
+  );
 }
