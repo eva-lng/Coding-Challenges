@@ -7,7 +7,7 @@ For example:
 if (x) == ['a', 3] you should return [['a', 3], ['a', 3], ['a', 3]].
 */
 
-function explode(x) {
+function explode1(x) {
   const [a, b] = x;
 
   if (typeof a === "number" && typeof b === "number")
@@ -16,4 +16,22 @@ function explode(x) {
   else if (typeof b === "number") return new Array(b).fill(x);
 
   return "Void!";
+}
+
+function explode2(x) {
+  if (!x.some((el) => typeof el === "number")) {
+    return "Void!";
+  }
+
+  const res = [];
+  let score = x.reduce(
+    (acc, el) => (typeof el === "number" ? acc + el : acc),
+    0
+  );
+
+  for (let i = 0; i < score; i++) {
+    res.push(x);
+  }
+
+  return res;
 }
