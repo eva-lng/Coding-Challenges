@@ -33,7 +33,7 @@ num only consists of digits.
 
 class Solution {
   /**
-   * @param {string[]} num
+   * @param {string} num
    * @return {string}
    */
 
