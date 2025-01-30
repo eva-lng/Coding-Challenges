@@ -61,4 +61,17 @@ class Solution {
     }
     return res;
   }
+
+  maxLengthBetweenEqualCharacters3(s) {
+    let res = -1;
+
+    for (let i = 0; i < s.length; i++) {
+      for (let j = i + 1; j < s.length; j++) {
+        if (s[i] === s[j]) {
+          res = Math.max(res, j - i - 1);
+        }
+      }
+    }
+    return res;
+  }
 }
