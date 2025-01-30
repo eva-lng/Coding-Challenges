@@ -30,7 +30,7 @@ class Solution {
    * @return {number}
    */
 
-  maxLengthBetweenEqualCharacters(s) {
+  maxLengthBetweenEqualCharacters1(s) {
     const chMap = {};
     let res = -1;
 
@@ -39,6 +39,24 @@ class Solution {
         chMap[s[i]] = i;
       } else {
         res = Math.max(res, i - chMap[s[i]] - 1);
+      }
+    }
+    return res;
+  }
+
+  maxLengthBetweenEqualCharacters2(s) {
+    const arr1 = new Array(26).fill(-1);
+    const arr2 = new Array(26).fill(-1);
+    let res = -1;
+
+    for (let i = 0; i < s.length; i++) {
+      const curr = s.charCodeAt(i) - "a".charCodeAt(0);
+
+      if (arr1[curr] === -1) {
+        arr1[curr] = i;
+      } else {
+        arr2[curr] = i;
+        res = Math.max(res, arr2[curr] - arr1[curr] - 1);
       }
     }
     return res;
