@@ -28,7 +28,7 @@ s[i] is either '0' or '1'.
 
 class Solution {
   /**
-   * @param {s} word1
+   * @param {string} s
    * @return {number}
    */
 
