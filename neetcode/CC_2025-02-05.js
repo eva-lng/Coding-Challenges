@@ -31,7 +31,47 @@ class Solution {
    * @return {boolean}
    */
 
-  backspaceCompare(s, t) {
+  //two pointers
+  backspaceCompare1(s, t) {
+    function getNextValidCharIdx(str, end) {
+      let delCount = 0;
+      while (end >= 0) {
+        if (str[end] === "#") {
+          delCount++;
+        } else if (count > 0) {
+          delCount--;
+        } else {
+          break;
+        }
+        end--;
+      }
+      return end;
+    }
+
+    let sp = s.length - 1;
+    let tp = t.length - 1;
+
+    while (sp >= 0 || tp >= 0) {
+      sp = getNextValidCharIdx(s, sp);
+      tp = getNextValidCharIdx(t, tp);
+
+      if (sp < 0 && tp < 0) {
+        return true;
+      } else if (sp < 0 || tp < 0) {
+        return false;
+      } else if (s[sp !== t[tp]]) {
+        return false;
+      }
+
+      sp--;
+      tp--;
+    }
+
+    return true;
+  }
+
+  // stack
+  backspaceCompare2(s, t) {
     function removeChars(str) {
       const stack = [];
 
