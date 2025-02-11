@@ -25,8 +25,24 @@ class Solution {
    * @return {number[]}
    */
 
+  // array
+  findErrorNums1(nums) {
+    const counts = new Array(nums.length + 1).fill(0);
+    let dup = 0;
+    let missing = 0;
+
+    for (let n of nums) {
+      counts[n] += 1;
+    }
+    for (let i = 1; i < counts.length; i++) {
+      if (counts[i] === 2) dup = i;
+      if (counts[i] === 0) missing = i;
+    }
+    return [dup, missing];
+  }
+
   // brute force
-  findErrorNums(nums) {
+  findErrorNums2(nums) {
     let dup = -1;
     let missing = -1;
 
