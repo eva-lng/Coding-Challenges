@@ -25,8 +25,30 @@ class Solution {
    * @return {number[]}
    */
 
-  // array
+  // sum + set
   findErrorNums1(nums) {
+    const n = nums.length;
+    const expectedSum = (n * (n + 1)) / 2;
+    const arrSum = nums.reduce((a, b) => a + b, 0);
+    let uniqueSum = 0;
+    const s = new Set();
+
+    for (const n of nums) {
+      s.add(n);
+    }
+
+    for (const n of s) {
+      uniqueSum += n;
+    }
+
+    const missing = expectedSum - uniqueSum;
+    const dup = arrSum - uniqueSum;
+
+    return [dup, missing];
+  }
+
+  // array
+  findErrorNums2(nums) {
     const counts = new Array(nums.length + 1).fill(0);
     let dup = 0;
     let missing = 0;
@@ -42,7 +64,7 @@ class Solution {
   }
 
   // brute force
-  findErrorNums2(nums) {
+  findErrorNums3(nums) {
     let dup = -1;
     let missing = -1;
 
