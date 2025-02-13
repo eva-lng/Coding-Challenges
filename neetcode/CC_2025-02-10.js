@@ -63,8 +63,34 @@ class Solution {
     return [dup, missing];
   }
 
-  // brute force
+  // map
   findErrorNums3(nums) {
+    const counts = new Map();
+    let dup = 0,
+      missing = 0;
+
+    for (let i = 1; i <= nums.length; i++) {
+      counts.set(i, 1);
+    }
+
+    for (const n of nums) {
+      counts.set(n, counts.get(n) - 1);
+    }
+
+    for (const [key, value] of counts.entries()) {
+      if (value === -1) {
+        dup = key;
+      }
+      if (value === 1) {
+        missing = key;
+      }
+    }
+
+    return [dup, missing];
+  }
+
+  // brute force
+  findErrorNums4(nums) {
     let dup = -1;
     let missing = -1;
 
