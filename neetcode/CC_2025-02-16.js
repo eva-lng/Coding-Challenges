@@ -28,7 +28,8 @@ class Solution {
    * @return {void}
    */
 
-  sortColors(nums) {
+  // hashmap
+  sortColors1(nums) {
     const count = { 0: 0, 1: 0, 2: 0 };
 
     for (const n of nums) {
@@ -41,6 +42,26 @@ class Solution {
       for (let j = 0; j < freq; j++) {
         nums[idx] = color;
         idx++;
+      }
+    }
+  }
+
+  // 3 pointers
+  sortColors2(nums) {
+    let red = 0,
+      white = 0,
+      blue = nums.length - 1;
+
+    while (white <= blue) {
+      if (nums[white] === 0) {
+        [nums[white], nums[red]] = [nums[red], nums[white]];
+        red++;
+        white++;
+      } else if (nums[white] === 1) {
+        white++;
+      } else {
+        [nums[white], nums[blue]] = [nums[blue], nums[white]];
+        blue--;
       }
     }
   }
