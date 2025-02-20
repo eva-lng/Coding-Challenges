@@ -27,7 +27,53 @@ class Solution {
    * @return {number[]}
    */
 
-  majorityElement(nums) {
+  // Boyer-Moore algo
+  majorityElement1(nums) {
+    let majority1 = 0;
+    let majority2 = 0;
+    let count1 = 0;
+    let count2 = 0;
+    const res = [];
+
+    for (const n of nums) {
+      if (n === majority1) {
+        count1++;
+      } else if (n === majority2) {
+        count2;
+      } else if (count1 === 0) {
+        majority1 = n;
+        count1++;
+      } else if (count2 === 0) {
+        majority2 = n;
+        count2++;
+      } else {
+        count1--;
+        count2--;
+      }
+    }
+
+    count1 = 0;
+    count2 = 0;
+
+    for (const n of nums) {
+      if (n === majority1) {
+        count1++;
+      } else if (n === majority2) {
+        count2++;
+      }
+    }
+
+    if (count1 > nums.length / 3) {
+      res.push(majority1);
+    }
+    if (count2 > nums.length / 3) {
+      res.push(majority2);
+    }
+    return res;
+  }
+
+  // hashmap
+  majorityElement2(nums) {
     const freq = {};
     const res = [];
 
