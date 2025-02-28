@@ -28,7 +28,21 @@ class Solution {
    * @return {number[]}
    */
 
-  getRow(rowIndex) {
+  getRow1(rowIndex) {
+    if (rowIndex === 0) return [1];
+
+    let curRow = [1];
+    let prevRow = this.getRow1(rowIndex - 1);
+
+    for (let i = 1; i < rowIndex; i++) {
+      curRow.push(prevRow[i - 1] + prevRow[i]);
+    }
+
+    curRow.push(1);
+    return curRow;
+  }
+
+  getRow2(rowIndex) {
     const res = Array.from({ length: rowIndex + 1 }, (_, i) =>
       Array(i + 1).fill(1)
     );
