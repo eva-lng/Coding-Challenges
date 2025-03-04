@@ -23,7 +23,15 @@ class Solution {
    * @return {string}
    */
 
-  largestNumber(nums) {
+  // sorting
+  largestNumber1(nums) {
+    const arr = nums.map(String);
+    arr.sort((a, b) => b + a - (a + b));
+    return arr.join("")[0] === "0" ? "0" : arr.join("");
+  }
+
+  // brute force
+  largestNumber2(nums) {
     const arr = nums.map(String);
     const res = [];
 
