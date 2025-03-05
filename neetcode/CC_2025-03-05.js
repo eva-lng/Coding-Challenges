@@ -29,8 +29,24 @@ class Solution {
    * @return {number}
    */
 
+  // hash map
+  leastBricks1(wall) {
+    const countGap = new Map();
+    countGap.set(0, 0);
+
+    for (const row of wall) {
+      let total = 0;
+      for (let i = 0; i < row.length - 1; i++) {
+        total += row[i];
+        countGap.set(total, (countGap.get(total) || 0) + 1);
+      }
+    }
+
+    return wall.length - Math.max(...countGap.values());
+  }
+
   // brute force
-  leastBricks(wall) {
+  leastBricks2(wall) {
     const n = wall.length;
     let m = 0;
     for (const brick of wall[0]) {
