@@ -40,7 +40,7 @@ class Solution {
    */
 
   // brute force
-  checkSubarraySum(nums, k) {
+  checkSubarraySum1(nums, k) {
     for (let i = 0; i < nums.length - 1; i++) {
       let sum = nums[i];
       for (let j = i + 1; j < nums.length; j++) {
@@ -48,6 +48,24 @@ class Solution {
         if (sum % k === 0) return true;
       }
     }
+    return false;
+  }
+
+  checkSubarraySum2(nums, k) {
+    const remainder = new Map();
+    remainder.set(0, -1);
+    let total = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+      total += nums[i];
+      const r = total % k;
+      if (!remainder.has(r)) {
+        remainder.set(r, i);
+      } else if (i - remainder.get(r) > 1) {
+        return true;
+      }
+    }
+
     return false;
   }
 }
