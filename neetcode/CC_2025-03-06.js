@@ -51,6 +51,7 @@ class Solution {
     return false;
   }
 
+  // hash map
   checkSubarraySum2(nums, k) {
     const remainder = new Map();
     remainder.set(0, -1);
