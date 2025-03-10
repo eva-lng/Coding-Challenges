@@ -44,7 +44,7 @@ class Solution {
    */
 
   // sorting
-  divideArray(nums, k) {
+  divideArray1(nums, k) {
     nums.sort((a, b) => a - b);
     const res = [];
 
@@ -53,6 +53,36 @@ class Solution {
         return [];
       }
       res.push([nums[i], nums[i + 1], nums[i + 2]]);
+    }
+
+    return res;
+  }
+
+  //counting sort
+  divideArray2(nums, k) {
+    const max = Math.max(...nums);
+    const count = new Array(max + 1).fill(0);
+
+    for (const n of nums) {
+      count[n]++;
+    }
+
+    const res = [];
+    let group = [];
+
+    for (let num = 0; num <= max; num++) {
+      while (count[num] > 0) {
+        group.push(num);
+        count[num]--;
+
+        if (group.length === 3) {
+          if (group[2] - group[0] > k) {
+            return [];
+          }
+          res.push(group);
+          group = [];
+        }
+      }
     }
 
     return res;
