@@ -28,12 +28,25 @@ class Solution {
    */
 
   // brute force
-  containsNearbyDuplicate(nums, k) {
+  containsNearbyDuplicate1(nums, k) {
     for (let l = 0; l < nums.length; l++) {
       for (let r = l + 1; r < Math.min(nums.length, l + k + 1); r++) {
         if (nums[l] === nums[r]) return true;
       }
     }
+    return false;
+  }
+
+  containsNearbyDuplicate2(nums, k) {
+    const map = new Map();
+
+    for (let i = 0; i < nums.length; i++) {
+      if (map.has(nums[i]) && i - map.get(nums[i]) <= k) {
+        return true;
+      }
+      map.set(nums[i], i);
+    }
+
     return false;
   }
 }
