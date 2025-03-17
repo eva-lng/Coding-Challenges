@@ -37,6 +37,7 @@ class Solution {
     return false;
   }
 
+  // hash map
   containsNearbyDuplicate2(nums, k) {
     const map = new Map();
 
@@ -48,5 +49,23 @@ class Solution {
     }
 
     return false;
+  }
+
+  // hash set
+  containsNearbyDuplicate3(nums, k) {
+    let window = new Set();
+    let l = 0;
+
+    for (let r = 0; r < nums.length; r++) {
+      if (r - l > k) {
+        window.delete(nums[l]);
+        l++;
+      }
+      if (window.has(nums[r])) {
+        return true;
+      }
+      window.add(nums[r]);
+    }
+    return true;
   }
 }
