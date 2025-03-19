@@ -36,7 +36,7 @@ class Solution {
    */
 
   // greedy
-  maxProfit(prices) {
+  maxProfit1(prices) {
     let profit = 0;
 
     for (let i = 1; i < prices.length; i++) {
@@ -45,5 +45,21 @@ class Solution {
       }
     }
     return profit;
+  }
+
+  // dynamic programming
+  maxprofit2(prices) {
+    let nextBuy = 0,
+      nextSell = 0;
+    let currBuy = 0,
+      currSell = 0;
+
+    for (let i = prices.length - 1; i >= 0; i--) {
+      currBuy = Math.max(nextBuy, -prices[i] + nextSell);
+      currSell = Math.max(nextSell, prices[i] + nextBuy);
+      nextBuy = currBuy;
+      nextSell = currSell;
+    }
+    return currBuy;
   }
 }
