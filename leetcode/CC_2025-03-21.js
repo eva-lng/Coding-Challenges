@@ -38,7 +38,7 @@ class Solution {
    */
 
   // brute force
-  zeroFilledSubarray(nums) {
+  zeroFilledSubarray1(nums) {
     let res = 0;
 
     for (let i = 0; i < nums.length; i++) {
@@ -46,6 +46,22 @@ class Solution {
         if (nums[j] !== 0) break;
         res++;
       }
+    }
+    return res;
+  }
+
+  // consecutive zeros count
+  zeroFilledSubarray2(nums) {
+    let res = 0;
+    let zeroCount = 0;
+
+    for (const n of nums) {
+      if (n === 0) {
+        zeroCount++;
+      } else {
+        zeroCount = 0;
+      }
+      res += zeroCount;
     }
     return res;
   }
