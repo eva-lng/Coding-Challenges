@@ -65,4 +65,21 @@ class Solution {
     }
     return res;
   }
+
+  // consecutive zeros count - math
+  zeroFilledSubarray3(nums) {
+    let res = 0;
+    let count = 0;
+
+    for (const n of nums) {
+      if (n === 0) {
+        count++;
+      } else {
+        res += (count * (count + 1)) / 2;
+        count = 0;
+      }
+    }
+    res += (count * (count + 1)) / 2;
+    return res;
+  }
 }
