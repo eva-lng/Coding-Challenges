@@ -26,7 +26,7 @@ class Solution {
    */
 
   // brute force
-  subarraySum(nums, k) {
+  subarraySum1(nums, k) {
     let res = 0;
 
     for (let i = 0; i < nums.length; i++) {
@@ -35,6 +35,22 @@ class Solution {
         sum += nums[j];
         if (sum === k) res++;
       }
+    }
+    return res;
+  }
+
+  // hash map
+  subarraySum2(nums, k) {
+    let res = 0;
+    let sum = 0;
+    const prefixSums = new Map();
+    prefixSums.set(0, 1);
+
+    for (const n of nums) {
+      sum += n;
+      const diff = sum - k;
+      res += prefixSums.get(diff) || 0;
+      prefixSums.set(sum, (prefixSums.get(sum) || 0) + 1);
     }
     return res;
   }
