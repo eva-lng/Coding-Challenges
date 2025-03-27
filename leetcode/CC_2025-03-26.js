@@ -24,7 +24,7 @@ class Solution {
    */
 
   // brute force
-  sequentialDigits(low, high) {
+  sequentialDigits1(low, high) {
     const res = [];
 
     for (let num = low; num <= high; num++) {
@@ -37,6 +37,28 @@ class Solution {
         }
       }
       if (flag) res.push(num);
+    }
+    return res;
+  }
+
+  // simulation
+  sequentialDigits2(low, high) {
+    const res = [];
+    const lowDigit = low.toString().length;
+    const highDigit = high.toString().length;
+
+    for (let digits = lowDigit; digits <= highDigit; digits++) {
+      for (let start = 1; start < 10; start++) {
+        if (start + digits > 10) break;
+        let num = start;
+        let prev = start;
+        for (let i = 1; i < digits; i++) {
+          num = num * 10 + ++prev;
+        }
+        if (num >= low && num <= high) {
+          res.push(num);
+        }
+      }
     }
     return res;
   }
