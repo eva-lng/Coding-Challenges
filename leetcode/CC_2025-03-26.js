@@ -41,8 +41,25 @@ class Solution {
     return res;
   }
 
-  // simulation
+  // sliding window
   sequentialDigits2(low, high) {
+    const nums = "123456789";
+    const res = [];
+
+    for (let d = 2; d <= 9; d++) {
+      for (let i = 0; i <= 9 - d; i++) {
+        const num = parseInt(nums.substring(i, i + d));
+        if (num > high) break;
+        if (num >= low && num <= high) {
+          res.push(num);
+        }
+      }
+    }
+    return res;
+  }
+
+  // simulation
+  sequentialDigits3(low, high) {
     const res = [];
     const lowDigit = low.toString().length;
     const highDigit = high.toString().length;
