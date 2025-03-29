@@ -1,4 +1,4 @@
-/* Monotonic Array
+/* 896. Monotonic Array
 
 An array is monotonic if it is either monotone increasing or monotone decreasing.
 
@@ -19,8 +19,8 @@ Input: nums = [1,3,2]
 Output: false
 
 Constraints:
-1 <= nums.length <= 105
--105 <= nums[i] <= 105
+1 <= nums.length <= 10^5
+-10^5 <= nums[i] <= 10^5
 */
 
 class Solution {

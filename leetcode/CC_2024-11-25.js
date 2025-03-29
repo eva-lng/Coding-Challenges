@@ -1,6 +1,7 @@
-/* Length of Last Word
+/* 58. Length of Last Word
 
 Given a string s consisting of words and spaces, return the length of the last word in the string.
+
 A word is a maximal substring consisting of non-space characters only.
 
 Example 1:
@@ -19,7 +20,7 @@ Output: 6
 Explanation: The last word is "joyboy" with length 6.
 
 Constraints:
-1 <= s.length <= 104
+1 <= s.length <= 10^4
 s consists of only English letters and spaces ' '.
 There will be at least one word in s.
 */
@@ -31,12 +32,12 @@ class Solution {
    */
   lengthOfLastWord1(s) {
     let end = s.length - 1;
-    while (end >= 0 && s[end] === ' ') {
+    while (end >= 0 && s[end] === " ") {
       end--;
     }
 
     let start = end;
-    while (start >= 0 && s[start] !== ' ') {
+    while (start >= 0 && s[start] !== " ") {
       start--;
     }
 
@@ -44,7 +45,7 @@ class Solution {
   }
 
   lengthOfLastWord2(s) {
-    const arr = s.trim().split(' ');
+    const arr = s.trim().split(" ");
     return arr[arr.length - 1].trim().length;
   }
 }

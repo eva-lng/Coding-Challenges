@@ -1,4 +1,4 @@
-/* Number of Good Pairs
+/* 1512. Number of Good Pairs
 
 Given an array of integers nums, return the number of good numsCount.
 A pair (i, j) is called good if nums[i] == nums[j] and i < j.
@@ -16,7 +16,6 @@ Explanation: Each pair in the array are good.
 Example 3:
 Input: nums = [1,2,3]
 Output: 0
- 
 
 Constraints:
 1 <= nums.length <= 100

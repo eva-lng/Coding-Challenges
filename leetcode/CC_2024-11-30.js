@@ -1,4 +1,4 @@
-/* Next Greater Element I
+/* 496. Next Greater Element I
 
 The next greater element of some element x in an array is the first greater element that is to the right of x in the same array.
 
@@ -26,7 +26,7 @@ Explanation: The next greater element for each value of nums1 is as follows:
 
 Constraints:
 1 <= nums1.length <= nums2.length <= 1000
-0 <= nums1[i], nums2[i] <= 104
+0 <= nums1[i], nums2[i] <= 10^4
 All integers in nums1 and nums2 are unique.
 All the integers of nums1 also appear in nums2.
 */

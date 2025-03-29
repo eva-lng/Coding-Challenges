@@ -1,4 +1,4 @@
-/* Valid Palindrome II
+/* 680. Valid Palindrome II
 
 Given a string s, return true if the s can be palindrome after deleting at most one character from it.
 
@@ -16,7 +16,7 @@ Input: s = "abc"
 Output: false
  
 Constraints:
-1 <= s.length <= 105
+1 <= s.length <= 10^5
 s consists of lowercase English letters.
 */
 
@@ -33,7 +33,10 @@ class Solution {
 
     while (low < high) {
       if (str[low] !== str[high]) {
-        return this.isPalindrome(str, low + 1, high) || this.isPalindrome(str, low, high - 1);
+        return (
+          this.isPalindrome(str, low + 1, high) ||
+          this.isPalindrome(str, low, high - 1)
+        );
       }
       low++;
       high--;
