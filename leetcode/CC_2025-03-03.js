@@ -1,4 +1,4 @@
-/* Largest Number
+/* 179. Largest Number
 
 Given a list of non-negative integers nums, arrange them such that they form the largest number and return it.
 
@@ -14,7 +14,7 @@ Output: "9534330"
 
 Constraints:
 1 <= nums.length <= 100
-0 <= nums[i] <= 109
+0 <= nums[i] <= 10^9
 */
 
 class Solution {

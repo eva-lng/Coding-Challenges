@@ -1,4 +1,4 @@
-/* Non-decreasing Array
+/* 665 Non-decreasing Array
 
 Given an array nums with n integers, your task is to check if it could become non-decreasing by modifying at most one element.
 
@@ -16,8 +16,8 @@ Explanation: You cannot get a non-decreasing array by modifying at most one elem
 
 Constraints:
 n == nums.length
-1 <= n <= 104
--105 <= nums[i] <= 105
+1 <= n <= 10^4
+-10^5 <= nums[i] <= 10^5
 */
 
 class Solution {

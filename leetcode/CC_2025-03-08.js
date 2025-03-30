@@ -1,4 +1,4 @@
-/* Divide Array Into Arrays With Max Difference
+/* 2966. Divide Array Into Arrays With Max Difference
 
 You are given an integer array nums of size n where n is a multiple of 3 and a positive integer k.
 
@@ -30,10 +30,10 @@ The difference between any two elements in each array is less than or equal to 1
 
 Constraints:
 n == nums.length
-1 <= n <= 105
+1 <= n <= 10^5
 n is a multiple of 3
-1 <= nums[i] <= 105
-1 <= k <= 105
+1 <= nums[i] <= 10^5
+1 <= k <= 10^5
 */
 
 class Solution {

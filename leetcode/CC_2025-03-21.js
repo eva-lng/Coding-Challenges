@@ -1,4 +1,4 @@
-/* Number of Zero-Filled Subarrays
+/* 2348. Number of Zero-Filled Subarrays
 
 Given an integer array nums, return the number of subarrays filled with 0.
 
@@ -27,8 +27,8 @@ Output: 0
 Explanation: There is no subarray filled with 0. Therefore, we return 0.
 
 Constraints:
-1 <= nums.length <= 105
--109 <= nums[i] <= 109
+1 <= nums.length <= 10^5
+-10^9 <= nums[i] <= 10^9
 */
 
 class Solution {

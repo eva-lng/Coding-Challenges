@@ -1,4 +1,4 @@
-/* Best Time to Buy and Sell Stock II
+/* 122. Best Time to Buy and Sell Stock II
 
 You are given an integer array prices where prices[i] is the price of a given stock on the ith day.
 
@@ -25,8 +25,8 @@ Output: 0
 Explanation: There is no way to make a positive profit, so we never buy the stock to achieve the maximum profit of 0.
 
 Constraints:
-1 <= prices.length <= 3 * 104
-0 <= prices[i] <= 104
+1 <= prices.length <= 3 * 10^4
+0 <= prices[i] <= 10^4
 */
 
 class Solution {

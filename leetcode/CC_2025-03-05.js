@@ -1,4 +1,4 @@
-/* Brick Wall
+/* 554. Brick Wall
 
 There is a rectangular brick wall in front of you with n rows of bricks. The ith row has some number of bricks each of the same height (i.e., one unit) but they can be of different widths. The total width of each row is the same.
 
@@ -16,11 +16,11 @@ Output: 3
 
 Constraints:
 n == wall.length
-1 <= n <= 104
-1 <= wall[i].length <= 104
-1 <= sum(wall[i].length) <= 2 * 104
+1 <= n <= 10^4
+1 <= wall[i].length <= 10^4
+1 <= sum(wall[i].length) <= 2 * 10^4
 sum(wall[i]) is the same for each row i.
-1 <= wall[i][j] <= 231 - 1
+1 <= wall[i][j] <= 2^31 - 1
 */
 
 class Solution {
