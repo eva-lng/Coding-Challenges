@@ -1,4 +1,4 @@
-/* Path Crossing
+/* 1496. Path Crossing
 
 Given a string path, where path[i] = 'N', 'S', 'E' or 'W', each representing moving one unit north, south, east, or west, respectively. You start at the origin (0, 0) on a 2D plane and walk on the path specified by path.
 
@@ -15,7 +15,7 @@ Output: true
 Explanation: Notice that the path visits the origin twice.
 
 Constraints:
-1 <= path.length <= 104
+1 <= path.length <= 10^4
 path[i] is either 'N', 'S', 'E', or 'W'.
 */
 

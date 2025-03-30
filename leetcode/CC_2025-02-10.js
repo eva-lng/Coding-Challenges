@@ -1,4 +1,4 @@
-/* Set Mismatch
+/* 645. Set Mismatch
 
 You have a set of integers s, which originally contains all the numbers from 1 to n. Unfortunately, due to some error, one of the numbers in s got duplicated to another number in the set, which results in repetition of one number and loss of another number.
 
@@ -15,8 +15,8 @@ Input: nums = [1,1]
 Output: [1,2]
 
 Constraints:
-2 <= nums.length <= 104
-1 <= nums[i] <= 104
+2 <= nums.length <= 10^4
+1 <= nums[i] <= 10^4
 */
 
 class Solution {

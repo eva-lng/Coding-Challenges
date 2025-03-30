@@ -1,4 +1,4 @@
-/* Assign Cookies
+/* 455. Assign Cookies
 
 Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie.
 
@@ -19,9 +19,9 @@ You have 3 cookies and their sizes are big enough to gratify all of the children
 You need to output 2.
 
 Constraints:
-1 <= g.length <= 3 * 104
-0 <= s.length <= 3 * 104
-1 <= g[i], s[j] <= 231 - 1
+1 <= g.length <= 3 * 10^4
+0 <= s.length <= 3 * 10^4
+1 <= g[i], s[j] <= 2^31 - 1
 */
 
 class Solution {

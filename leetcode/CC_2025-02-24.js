@@ -1,4 +1,4 @@
-/* Remove Duplicates from Sorted Array II
+/* 80. Remove Duplicates from Sorted Array II
 
 Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.
 
@@ -21,8 +21,8 @@ Explanation: Your function should return k = 7, with the first seven elements of
 It does not matter what you leave beyond the returned k (hence they are underscores).
 
 Constraints:
-1 <= nums.length <= 3 * 104
--104 <= nums[i] <= 104
+1 <= nums.length <= 3 * 10^4
+-10^4 <= nums[i] <= 10^4
 nums is sorted in non-decreasing order.
 */
 

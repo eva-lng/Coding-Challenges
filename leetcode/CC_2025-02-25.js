@@ -1,4 +1,4 @@
-/* Sort an Array
+/* 912. Sort an Array
 
 Given an array of integers nums, sort the array in ascending order and return it.
 
@@ -15,8 +15,8 @@ Output: [0,0,1,1,2,5]
 Explanation: Note that the values of nums are not necessairly unique.
 
 Constraints:
-1 <= nums.length <= 5 * 104
--5 * 104 <= nums[i] <= 5 * 104
+1 <= nums.length <= 5 * 10^4
+-5 * 10^4 <= nums[i] <= 5 * 10^4
 */
 
 class Solution {

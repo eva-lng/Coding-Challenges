@@ -1,4 +1,4 @@
-/* Minimum Difference Between Highest and Lowest of K Scores
+/* 1984. Minimum Difference Between Highest and Lowest of K Scores
 
 You are given a 0-indexed integer array nums, where nums[i] represents the score of the ith student. You are also given an integer k.
 
@@ -27,7 +27,7 @@ The minimum possible difference is 2.
 
 Constraints:
 1 <= k <= nums.length <= 1000
-0 <= nums[i] <= 105
+0 <= nums[i] <= 10^5
 */
 
 class Solution {

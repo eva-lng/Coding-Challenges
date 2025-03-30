@@ -1,4 +1,4 @@
-/* Sign of the Product of an Array
+/* 1822. Sign of the Product of an Array
 
 Implement a function signFunc(x) that returns:
 1 if x is positive.

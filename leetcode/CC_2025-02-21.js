@@ -1,4 +1,4 @@
-/* Minimum Number of Swaps to Make the String Balanced
+/* 1963. Minimum Number of Swaps to Make the String Balanced
 
 You are given a 0-indexed string s of even length n. The string consists of exactly n / 2 opening brackets '[' and n / 2 closing brackets ']'.
 
@@ -31,7 +31,7 @@ Explanation: The string is already balanced.
 
 Constraints:
 n == s.length
-2 <= n <= 106
+2 <= n <= 10^6
 n is even.
 s[i] is either '[' or ']'.
 The number of opening brackets '[' equals n / 2, and the number of closing brackets ']' equals n / 2.
