@@ -31,7 +31,7 @@ class Solution {
    */
 
   // brute force
-  getSumAbsoluteDifferences(nums) {
+  getSumAbsoluteDifferences1(nums) {
     const res = n;
 
     for (let i = 0; i < nums.length; i++) {
@@ -41,6 +41,32 @@ class Solution {
       }
       res.push(sum);
     }
+    return res;
+  }
+
+  // prefix & suffix sums (extra space)
+  getSumAbsoluteDifferences2(nums) {
+    const n = nums.length;
+    const prefixSum = Array(n).fill(0);
+    const suffixSum = Array(n).fill(0);
+    const res = Array(n).fill(0);
+
+    prefixSum[0] = nums[0];
+    for (let i = 1; i < n; i++) {
+      prefixSum[i] = prefixSum[i - 1] + nums[i];
+    }
+
+    suffixSum[n - 1] = nums[n - 1];
+    for (let i = n - 2; i >= 0; i--) {
+      suffixSum[i] = suffixSum[i + 1] + nums[i];
+    }
+
+    for (let i = 0; i < n; i++) {
+      const leftSum = i > 0 ? i * nums[i] - prefixSum[i - 1] : 0;
+      const rightSum = i < n - 1 ? suffixSum[i + 1] - (n - i - 1) * nums[i] : 0;
+      res[i] = leftSum + rightSum;
+    }
+
     return res;
   }
 }
