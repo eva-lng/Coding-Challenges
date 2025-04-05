@@ -69,4 +69,25 @@ class Solution {
 
     return res;
   }
+
+  // prefix & suffix sums
+  getSumAbsoluteDifferences3(nums) {
+    const n = nums.length;
+    const res = Array(n).fill(0);
+
+    res[n - 1] = nums[n - 1];
+    for (let i = n - 2; i >= 0; i--) {
+      res[i] = res[i + 1] + nums[i];
+    }
+
+    let prefixSum = 0;
+    for (let i = 0; i < n; i++) {
+      const leftSum = i * nums[i] - prefixSum;
+      const rightSum = i < n - 1 ? res[i + 1] - (n - i - 1) * nums[i] : 0;
+      res[i] = leftSum + rightSum;
+      prefixSum += nums[i];
+    }
+
+    return res;
+  }
 }
