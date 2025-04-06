@@ -90,4 +90,23 @@ class Solution {
 
     return res;
   }
+
+  // prefix & suffix sums (optimal)
+  getSumAbsoluteDifferences(nums) {
+    const n = nums.length;
+    const res = Array(n).fill(0);
+
+    let totalSum = nums.reduce((sum, num) => sum + num, 0);
+    let prefixSum = 0;
+
+    for (let i = 0; i < n; i++) {
+      totalSum -= nums[i];
+      const leftSum = i * nums[i] - prefixSum;
+      const rightSum = totalSum - (n - i - 1) * nums[i];
+      res[i] = leftSum + rightSum;
+      prefixSum += nums[i];
+    }
+
+    return res;
+  }
 }
