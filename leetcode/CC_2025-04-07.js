@@ -39,7 +39,7 @@ class Solution {
    * @param {number[]} spaces
    * @return {string}
    */
-  addSpaces(s, spaces) {
+  addSpaces1(s, spaces) {
     let res = "";
 
     for (let i = 0; i < spaces.length; i++) {
@@ -50,5 +50,27 @@ class Solution {
     res += s.slice(spaces.slice(-1));
 
     return res;
+  }
+
+  addSpaces2(s, spaces) {
+    let i = 0,
+      j = 0;
+    let res = [];
+
+    while (i < s.length && j < spaces.length) {
+      if (i < spaces[j]) {
+        res.push(s[i]);
+        i++;
+      } else {
+        res.push(" ");
+        j++;
+      }
+    }
+
+    if (i < s.length) {
+      res.push(s.slice(i));
+    }
+
+    return res.join("");
   }
 }
