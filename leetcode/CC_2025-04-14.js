@@ -29,7 +29,7 @@ class Solution {
    */
 
   // brute force
-  findMissingAndRepeatedValues(grid) {
+  findMissingAndRepeatedValues1(grid) {
     const n = grid.length;
     let double = 0,
       missing = 0;
@@ -49,6 +49,29 @@ class Solution {
         missing = num;
       }
     }
+    return [double, missing];
+  }
+
+  // hash map
+  findMissingAndRepeatedValues2(grid) {
+    const n = grid.length;
+    const count = {};
+
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
+        const val = grid[i][j];
+        count[val] = (count[val] || 0) + 1;
+      }
+    }
+
+    let double = 0,
+      missing = 0;
+
+    for (let num = 1; num <= n * n; num++) {
+      if (count[num] === 2) double = num;
+      if (!count[num]) missing = num;
+    }
+
     return [double, missing];
   }
 }
