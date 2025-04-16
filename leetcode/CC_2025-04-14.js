@@ -74,4 +74,31 @@ class Solution {
 
     return [double, missing];
   }
+
+  // hash set
+  findMissingAndRepeatedValues3(grid) {
+    const n = grid.length;
+    const seen = new Set();
+    let double = 0,
+      missing = 0;
+
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
+        const val = grid[i][j];
+        if (seen.has(val)) {
+          double = val;
+        }
+        seen.add(val);
+      }
+    }
+
+    for (let num = 1; num <= n * n; num++) {
+      if (!seen.has(num)) {
+        missing = num;
+        break;
+      }
+    }
+
+    return [double, missing];
+  }
 }
