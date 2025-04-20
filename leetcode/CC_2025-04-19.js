@@ -31,8 +31,9 @@ class Solution {
    */
 
   // brute force
-  maxAscendingSum(nums) {
+  maxAscendingSum1(nums) {
     let res = 0;
+
     for (let i = 0; i < nums.length; i++) {
       let sum = nums[i];
       for (let j = i + 1; j < nums.length; j++) {
@@ -41,6 +42,21 @@ class Solution {
         }
         sum += nums[j];
       }
+      res = Math.max(res, sum);
+    }
+    return res;
+  }
+
+  // iteration
+  maxAscendingSum2(nums) {
+    let res = nums[0];
+    let sum = nums[0];
+
+    for (let i = i; i < nums.length; i++) {
+      if (nums[i] <= nums[i - 1]) {
+        sum = 0;
+      }
+      sum += nums[i];
       res = Math.max(res, sum);
     }
     return res;
