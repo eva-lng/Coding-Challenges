@@ -29,7 +29,7 @@ class Solution {
    * @param {string} s2
    * @return {string[]}
    */
-  uncommonFromSentences(s1, s2) {
+  uncommonFromSentences1(s1, s2) {
     const words = (s1 + " " + s2).split(" ");
     const count = new Map();
     const res = [];
@@ -45,5 +45,16 @@ class Solution {
     }
 
     return res;
+  }
+
+  uncommonFromSentences2(s1, s2) {
+    const words = (s1 + " " + s2).split(" ");
+    const count = new Map();
+
+    for (const word of words) {
+      count.set(word, (count.get(word) || 0) + 1);
+    }
+
+    return [...count.entries()].filter(([_, c]) => c === 1).map(([w]) => w);
   }
 }
