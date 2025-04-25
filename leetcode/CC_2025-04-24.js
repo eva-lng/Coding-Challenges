@@ -33,7 +33,7 @@ class Solution {
    */
 
   // hash map
-  sortPeople(names, heights) {
+  sortPeople1(names, heights) {
     const map = {};
     const res = [];
 
@@ -48,5 +48,12 @@ class Solution {
     }
 
     return res;
+  }
+
+  // pairs sorting
+  sortPeople2(names, heights) {
+    const arr = names.map((name, i) => [heights[i], name]);
+    arr.sort((a, b) => b[0] - a[0]);
+    return arr.map((el) => el[1]);
   }
 }
