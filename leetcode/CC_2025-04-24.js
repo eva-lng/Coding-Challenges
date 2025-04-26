@@ -56,4 +56,11 @@ class Solution {
     arr.sort((a, b) => b[0] - a[0]);
     return arr.map((el) => el[1]);
   }
+
+  // indices sort
+  sortPeople3(names, heights) {
+    const indices = names.map((_, i) => i);
+    indices.sort((a, b) => heights[b] - heights[a]);
+    return indices.map((i) => names[i]);
+  }
 }
