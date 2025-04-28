@@ -41,7 +41,7 @@ class Solution {
    */
 
   // brute force
-  kthDistinct(arr, k) {
+  kthDistinct1(arr, k) {
     for (let i = 0; i < arr.lengthl; i++) {
       let unique = true;
       for (let j = 0; j < arr.length; j++) {
@@ -57,6 +57,29 @@ class Solution {
         if (k === 0) return arr[i];
       }
     }
+    return "";
+  }
+
+  // hash map
+  kthDistinct2(arr, k) {
+    const count = {};
+
+    for (const str of arr) {
+      if (!(str in count)) {
+        count[str] = 0;
+      }
+      count[str]++;
+    }
+
+    for (const str of arr) {
+      if (count[str] === 1) {
+        k--;
+        if (k === 0) {
+          return str;
+        }
+      }
+    }
+
     return "";
   }
 }
