@@ -82,4 +82,30 @@ class Solution {
 
     return "";
   }
+
+  // hash set
+  kthDistinct3(arr, k) {
+    const unique = new Set();
+    const seen = new Set();
+
+    for (const str of arr) {
+      if (unique.has(str)) {
+        unique.delete(str);
+        seen.add(str);
+      } else if (!seen.has(str)) {
+        unique.add(str);
+      }
+    }
+
+    for (const str of arr) {
+      if (unique.has(str)) {
+        k--;
+        if (k === 0) {
+          return str;
+        }
+      }
+    }
+
+    return "";
+  }
 }
