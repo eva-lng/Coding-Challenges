@@ -34,7 +34,7 @@ class Solution {
    */
 
   // sorting
-  divideArray(nums) {
+  divideArray1(nums) {
     nums.sort((a, b) => a - b);
     let i = 0;
 
@@ -45,6 +45,21 @@ class Solution {
       }
       if ((j - i) % 2 !== 0) return false;
       i = j;
+    }
+
+    return true;
+  }
+
+  // hash map
+  divideArray2(nums) {
+    const count = {};
+
+    for (const n of nums) {
+      count[n] = (count[n] || 0) + 1;
+    }
+
+    for (const key in count) {
+      if (count[key] % 2 !== 0) return false;
     }
 
     return true;
