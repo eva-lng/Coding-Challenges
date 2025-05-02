@@ -64,4 +64,19 @@ class Solution {
 
     return true;
   }
+
+  // hash set
+  divideArray3(nums) {
+    const oddSet = new Set();
+
+    for (const n of nums) {
+      if (oddSet.has(n)) {
+        oddSet.delete(n);
+      } else {
+        oddSet.add(n);
+      }
+    }
+
+    return oddSet.size === 0;
+  }
 }
