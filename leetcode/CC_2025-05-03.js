@@ -35,7 +35,7 @@ class Solution {
    */
 
   // brute force
-  countConsistentStrings(allowed, words) {
+  countConsistentStrings1(allowed, words) {
     let res = 0;
 
     for (const w of words) {
@@ -47,6 +47,23 @@ class Solution {
         }
       }
       res += flag;
+    }
+
+    return res;
+  }
+
+  // hash set
+  countConsistentStrings2(allowed, words) {
+    const allowedSet = new Set(allowed);
+    let res = words.length;
+
+    for (const w of words) {
+      for (const c of w) {
+        if (!allowedSet.has(c)) {
+          res--;
+          break;
+        }
+      }
     }
 
     return res;
