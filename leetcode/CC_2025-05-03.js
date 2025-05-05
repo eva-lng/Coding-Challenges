@@ -68,4 +68,24 @@ class Solution {
 
     return res;
   }
+
+  // boolean array
+  countConsistentStrings3(allowed, words) {
+    let res = words.length;
+    const allowedArr = new Array(26).fill(false);
+    for (const c of allowed) {
+      allowedArr[c.charCodeAt(0) - 97] = true;
+    }
+
+    for (const w of words) {
+      for (const c of w) {
+        if (!allowedArr[c.charCodeAt(0) - 97]) {
+          res--;
+          break;
+        }
+      }
+    }
+
+    return res;
+  }
 }
