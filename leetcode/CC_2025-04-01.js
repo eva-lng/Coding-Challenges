@@ -24,21 +24,19 @@ class Solution {
    * @param {string} s
    * @return {number}
    */
-  longestPalindrome(s) {
-    let charFrequency = {};
-    let oddFrequencyCount = 0;
+
+  // hash map
+  longestPalindrome1(s) {
+    const charCount = {};
+    let res = 0;
 
     for (const char of s) {
-      charFrequency[char] = (charFrequency[char] || 0) + 1;
-      if (charFrequency[char] % 2 === 1) {
-        oddFrequencyCount++;
-      } else {
-        oddFrequencyCount--;
+      charCount[char] = (charCount[char] || 0) + 1;
+      if (charCount[char] % 2 === 0) {
+        res += 2;
       }
     }
-    if (oddFrequencyCount > 1) {
-      return s.length - oddFrequencyCount + 1;
-    }
-    return s.length;
+
+    return res + (res < s.length ? 1 : 0);
   }
 }
