@@ -39,4 +39,21 @@ class Solution {
 
     return res + (res < s.length ? 1 : 0);
   }
+
+  // hash set
+  longestPalindrome2(s) {
+    const seen = new Set();
+    let res = 0;
+
+    for (const char of s) {
+      if (seen.has(char)) {
+        seen.delete(char);
+        res += 2;
+      } else {
+        seen.add(char);
+      }
+    }
+
+    return seen.size === 0 ? res : res + 1;
+  }
 }
