@@ -31,7 +31,20 @@ class Solution {
    * @param {string[]} details
    * @return {number}
    */
-  countSeniors(details) {
+  countSeniors1(details) {
     return details.filter((el) => parseInt(el.slice(11, 13)) > 60).length;
+  }
+
+  countSeniors2(details) {
+    let res = 0;
+    for (let d of details) {
+      let ten = d.charCodeAt(11) - 48;
+      let one = d.charCodeAt(12) - 48;
+      let age = one + 10 * ten;
+      if (age > 60) {
+        res++;
+      }
+    }
+    return res;
   }
 }
