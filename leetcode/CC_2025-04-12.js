@@ -36,7 +36,9 @@ class Solution {
    * @param {number[]} nums
    * @return {number}
    */
-  longestMonotonicSubarray(nums) {
+
+  // iteration
+  longestMonotonicSubarray1(nums) {
     let inc = 1,
       dec = 1,
       max = 1;
@@ -55,5 +57,26 @@ class Solution {
       max = Math.max(inc, dec, max);
     }
     return max;
+  }
+
+  // brute force
+  longestMonotonicSubarray2(nums) {
+    let n = nums.length;
+    let res = 1;
+
+    for (let i = 0; i < n - 1; i++) {
+      let curLen = 1;
+      for (let j = i + 1; j < n; j++) {
+        if (
+          nums[j] === nums[j - 1] ||
+          nums[i] < nums[i + 1] !== nums[j - 1] < nums[j]
+        ) {
+          break;
+        }
+        curLen++;
+      }
+      res = Math.max(res, curLen);
+    }
+    return res;
   }
 }
