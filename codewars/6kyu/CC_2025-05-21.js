@@ -19,7 +19,7 @@ There will always be a clear winner: either one person has the most, or everyone
 If there is only one student, then that student has the most money
 */
 
-function mostMoney(students) {
+function mostMoney1(students) {
   let maxVal = 0;
   let names = [];
   for (const st of students) {
@@ -32,4 +32,13 @@ function mostMoney(students) {
     }
   }
   return names.length > 1 ? "all" : names[0];
+}
+
+function mostMoney2(students) {
+  const money = students.map(
+    (st) => st.fives * 5 + st.tens * 10 + st.twenties * 20
+  );
+  if (money.length > 1 && money.every((n) => n === money[0])) return "all";
+  const idx = money.indexOf(Math.max(...money));
+  return students[idx].name;
 }
