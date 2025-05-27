@@ -11,7 +11,7 @@ numbersOfLetters(60) --> ["sixzero", "seven", "five", "four"]
 numbersOfLetters(1) --> ["one", "three", "five", "four"]
 */
 
-function numbersOfLetters(integer) {
+function numbersOfLetters1(integer) {
   const chars = {
     1: "one",
     2: "two",
@@ -37,6 +37,32 @@ function numbersOfLetters(integer) {
     res.push(str);
     if (num === str.length) break;
     num = str.length;
+  }
+  return res;
+}
+
+function numbersOfLetters2(integer) {
+  const chars = [
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+  ];
+  let str = "a".repeat(integer);
+  const res = [];
+
+  while (str !== chars[str.length]) {
+    str = (str.length + "")
+      .split("")
+      .map((n) => chars[n])
+      .join("");
+    res.push(str);
   }
   return res;
 }
