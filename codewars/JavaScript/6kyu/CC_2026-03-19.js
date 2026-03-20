@@ -15,7 +15,7 @@ because for this string, the minimum substring 't'
 such that 's' is 'k' times 't', is 's' itself.
 */
 
-function f(s) {
+function f1(s) {
   for (let i = 1; i <= s.length; i++) {
     if (s.length % i === 0) {
       const t = s.slice(0, i);
@@ -26,5 +26,35 @@ function f(s) {
       }
     }
   }
+  return [s, 1];
+}
+
+// KMP algo
+function f2(s) {
+  const lps = new Array(s.length).fill(0);
+  let length = 0;
+  let i = 1;
+
+  while (i < s.length) {
+    if (s[i] === s[length]) {
+      length++;
+      lps[i] = length;
+      i++;
+    } else {
+      if (length !== 0) {
+        length = lps[length - 1];
+      } else {
+        lps[i] = 0;
+        i++;
+      }
+    }
+  }
+
+  const longestPrefixSuffix = lps[s.length - 1];
+  const patternLength = s.length - longestPrefixSuffix;
+  if (s.length % patternLength === 0) {
+    return [s.slice(0, patternLength), s.length / patternLength];
+  }
+
   return [s, 1];
 }
