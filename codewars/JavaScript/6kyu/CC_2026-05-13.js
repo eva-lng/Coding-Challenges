@@ -17,7 +17,7 @@ squaresToOdd(100, 98) --> "100^2 - 98^2 = 197 + 199 = 396"
 squaresToOdd(100, 99) --> "100^2 - 99^2 = 199 = 199"
 */
 
-function squaresToOdd(sqr1, sqr2) {
+function squaresToOdd1(sqr1, sqr2) {
   const nOfOdds = sqr1 - sqr2;
   const sumOfOdds = sqr1 * sqr1 - sqr2 * sqr2;
   const mid = sumOfOdds / nOfOdds;
@@ -25,6 +25,18 @@ function squaresToOdd(sqr1, sqr2) {
 
   for (let i = mid - nOfOdds + 1; i <= mid + nOfOdds - 1; i += 2) {
     odds.push(i);
+  }
+
+  return `${sqr1}^2 - ${sqr2}^2 = ${odds.join(" + ")} = ${sumOfOdds}`;
+}
+
+function squaresToOdd2(sqr1, sqr2) {
+  let sumOfOdds = 0;
+  let odds = [];
+
+  for (let i = sqr2 * 2 + 1; i <= sqr1 * 2 - 1; i += 2) {
+    odds.push(i);
+    sumOfOdds += i;
   }
 
   return `${sqr1}^2 - ${sqr2}^2 = ${odds.join(" + ")} = ${sumOfOdds}`;
