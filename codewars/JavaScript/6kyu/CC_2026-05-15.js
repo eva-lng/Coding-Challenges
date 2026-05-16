@@ -26,7 +26,7 @@ input: a string of one or more digits.
 output: a string formatted as in the above example.
 */
 
-function digitRacers(str) {
+function digitRacers1(str) {
   const count = {};
   const freq = Array.from({ length: str.length + 1 }, () => []);
   const set = new Set(str);
@@ -56,4 +56,37 @@ function digitRacers(str) {
   }
 
   return `${res.join("\n")}\n${absent.length ? "Absent digits: " + absent.join(", ") : "All digits present"}`;
+}
+
+function digitRacers2(str) {
+  const count = new Array(10).fill(0);
+  const lastPos = new Array(10).fill(-1);
+  const freq = Array.from({ length: str.length + 1 }, () => []);
+  const res = [];
+
+  for (let i = 0; i < str.length; i++) {
+    const n = str.charCodeAt(i) - "0".charCodeAt(0);
+    count[n]++;
+    lastPos[n] = i;
+  }
+
+  for (let i = 0; i < count.length; i++) {
+    freq[count[i]].push(i);
+  }
+
+  const absent = freq[0].length
+    ? "Absent digits: " + freq[0].join(", ")
+    : "All digits present";
+  const ord = (n) => (n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th");
+  let place = 1;
+
+  for (let i = freq.length - 1; i >= 1; i--) {
+    if (freq[i].length) {
+      const arr = freq[i].sort((a, b) => lastPos[b] - lastPos[a]);
+      res.push(`${place}${ord(place)} place: ${arr.join(", ")}`);
+      place++;
+    }
+  }
+
+  return res.join("\n") + "\n" + absent;
 }
