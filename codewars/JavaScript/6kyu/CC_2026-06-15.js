@@ -28,7 +28,7 @@ If an array with one element is folded, it stays as the same array.
 The input array should not be modified!
 */
 
-function foldArray(arr, runs) {
+function foldArray1(arr, runs) {
   const res = [...arr];
   let i = 0;
   let j = res.length - 1;
@@ -54,6 +54,21 @@ function foldArray(arr, runs) {
 
     i = 0;
     j = res.length - 1;
+  }
+
+  return res;
+}
+
+function foldArray2(arr, runs) {
+  let res = [...arr];
+
+  for (let i = 0; i < runs; i++) {
+    const len = res.length;
+    const mid = Math.floor(len / 2);
+
+    res = res
+      .slice(0, Math.ceil(len / 2))
+      .map((n, j) => (len % 2 === 1 && j === mid ? n : n + res[len - 1 - j]));
   }
 
   return res;
